@@ -88,10 +88,11 @@ Pandas provides isna() and notna() functions to detect ‘NA’ values. These ar
 
 Examples of isna() and notna() commands
 
-# detect ‘NA’ values in the dataframe	
+
+### detect ‘NA’ values in the dataframe	
 `df.isna()`
 
-# detect ‘NA’ values in a particular column in the dataframe
+### detect ‘NA’ values in a particular column in the dataframe
 `pd.isna(df[‘col_name’])`
 
 `df[‘col_name’].notna()`
@@ -114,12 +115,12 @@ I have discussed each method in below sections:-
 
 This is the easiest method to handle missing values. In this method, we drop labels or columns from a data set which refer to missing values. 
 
-# drop labels or rows from a data set containing missing values
+### drop labels or rows from a data set containing missing values
 
 `df.dropna (axis = 0)`
 
 
- # drop columns from a data set containing missing values
+ ### drop columns from a data set containing missing values
 
 df.dropna(axis = 1)
 
@@ -136,10 +137,13 @@ This is the Pandas dataframe dropna() method. An equivalent dropna() method is a
 
 After dropping the missing values, we can again check for missing values and the dimensions of the dataframe.
 
-# again check the missing values in each column
+
+### again check the missing values in each column
+
 df.isnull.sum()  
 
-# again check the dimensions of the dataset
+### again check the dimensions of the dataset
+
 df.shape
 
 But, this method has one disadvantage. It involves the risk of losing useful information. Suppose there are lots of missing values in our dataset. If drop them, we may end up throwing away valuable information along with the missing data. It is a very grave mistake as it involves losing key information. So, it is only advised when there are only few missing values in our dataset.
@@ -148,68 +152,91 @@ So, it's better to develop an imputation strategy so that we can impute missing 
 
 
 
-2.	Fill missing values with a test statistic
+## 2.	Fill missing values with a test statistic
 
 In this method, we fill the missing values with a test statistic like mean, median or mode of the particular feature the missing value belongs to. One can also specify a forward-fill or back-fill to propagate the next values backward or previous value forward.
-# Filling missing values with a test statistic like mean
+
+
+### Filling missing values with a test statistic like mean
+
 `median = df['col_name'].median()`
+
 `df['col_name'].fillna(value = median, inplace = True )`
 
-# We can also use replace() in place of fillna()
+
+### We can also use replace() in place of fillna()
+
 `df[‘col_name’].replace(to_replace = NaN, value = median, inplace = True)`
+
 
 If we choose this method, then we should compute the median value on the training set and use it to fill the missing values in the training set. Then we should save the median value that we have computed.  Later, we will replace missing values in the test set with the median value to evaluate the system.
 
 
 
 
-3.	Fill missing values with Imputer
+## 3.	Fill missing values with Imputer
 
 Scikit-Learn provides Imputer class to deal with the missing values. In this method, we replace the missing value with the mean value of the entire feature column. This can be done as shown in the following code:
+
 `from sklearn.preprocessing import Imputer`
 `imp = Imputer(missing_values='NaN',  strategy='mean', axis=0)`
 `imp = imp.fit(df.values)`
 `imputed_data = imp.transform(df.values)`
 `imputed_data`
 
+
 Here, I have replaced each ‘NaN’ value with the corresponding mean value. The mean value is separately calculated for each feature column. If instead of axis = 0, we set axis = 1, then mean values are calculated for each row. 
 Other options for strategy parameter are ‘median’ or ‘most_frequent’. The ‘most_frequent’ parameter replaces the missing values with the most frequent value. It is useful for imputing categorical feature values.
 
-4.	Build a Prediction Model
+
+
+## 4.	Build a Prediction Model
 
 We can build a Prediction Model to handle missing values. In this method, we divide our data set into two sets – training set and test set. Training set does not contain any missing values and test set contains missing values. The variable containing missing values can be treated as a target variable. Next, we create a model to predict target variable and use it to populate missing values of test data set. 
 
 
 
-5.	KNN Imputation
+## 5.	KNN Imputation
+
 In this method, the missing values of an attribute are imputed using the given number of attributes that are mostly similar to the attribute whose values are missing. The similarity of attributes is determined using a distance function.
 
-### Check with ASSERT statement
+
+
+## Check with ASSERT statement
 
 Finally, we can check for missing values programmatically. If we drop or fill missing values, we expect no missing values. We can write an assert statement to verify this. So, we can use an assert statement to programmatically check that no missing or unexpected ‘0’ value is present. This gives confidence that our code is running properly.
+
 Assert statement will return nothing if the value being tested is true and will throw an AssertionError if the value is false.
 
 Asserts
+
 •	assert 1 == 1   (return Nothing if the value is True)
+
 •	assert 1 == 2   (return AssertionError if the value is False)
 
-#assert that there are no missing values in the dataframe
+
+### assert that there are no missing values in the dataframe
+
 `assert pd.notnull(df).all().all()`
 
 
-#assert that there are no missing values for a particular column in dataframe
+### assert that there are no missing values for a particular column in dataframe
+
 `assert df.column_name.notnull().all()`
 
 
-#assert all values are greater than 0
+### assert all values are greater than 0
+
 `assert (df >=0).all().all()`
 
-#assert no entry in a column is equal to 0
+
+### assert no entry in a column is equal to 0
+
 `assert (df['column_name']!=0).all().all()`
 
 
 
-This concludes our discussion on missing values.
+This concludes our discussion on missing numerical values.
 
 
 
