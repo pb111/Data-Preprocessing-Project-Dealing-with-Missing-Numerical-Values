@@ -14,19 +14,7 @@ So, ML practitioners must take steps to transform raw data into standardized dat
 
 In this project, I explore various Data Preprocessing techniques as listed below:-
 
-1.	Dealing with missing values
-2.	Handle text and categorical data
-3.	Feature Scaling
-4.	Deal with Outliers
-5.	Handle imbalanced classes
-6.	Rescaling data
-7.	Standardizing data
-8.	Normalizing data
-9.	Binarizing data
-10.	Mean removal
-11.	Discretization
-12.	Feature selection
-13.	Feature engineering
+
 
 I will discuss these data preprocessing tasks in detail and write code snippets to deal with each task.  
 
@@ -60,22 +48,26 @@ The initial inspection of the data help us to detect whether there are missing v
 Below is the list of commands to identity missing values with EDA.
 
 1.	`df.head()`
+
 This will output the first five rows of the dataset. It will give us quick view on the presence of ‘NaN’ or ‘?’ ‘-1’ or ’0’ or blank spaces “” in the dataset. If required, we can view more number of rows by specifying the number of rows inside the parenthesis. 
 
 
 
 2.	`df.info()`
+
 This command is quite useful in detecting the missing values in the dataset. It will tell us the total number of non - null observations present including the total number of entries. Once number of entries isn’t equal to number of non - null observations, we know there are missing values in the dataset.
 
 
 
 3.	`df.describe()`
+
 This will display summary statistics of all observed features and labels. The most important statistic is the minimum value. If we see -1 or 0 in our observations, then we can suspect missing value.
 
 
 
 
 4.	`df.isnull()`
+
 The above command checks whether each cell in a dataframe contains missing values or not. If the cell contains missing value, it returns True otherwise it returns False. 
 
 5.	`df.isnull.sum()`
@@ -84,15 +76,18 @@ The above command returns the total number of missing values in each column in t
 
 
 6.	isna() and notna() functions to detect ‘NA’ values
+
 Pandas provides isna() and notna() functions to detect ‘NA’ values. These are also methods on Series and DataFrame objects.
 
 Examples of isna() and notna() commands
 
 
 ### detect ‘NA’ values in the dataframe	
+
 `df.isna()`
 
 ### detect ‘NA’ values in a particular column in the dataframe
+
 `pd.isna(df[‘col_name’])`
 
 `df[‘col_name’].notna()`
@@ -103,9 +98,13 @@ Examples of isna() and notna() commands
 There are several methods to handle missing values. Each method has its own advantages and disadvantages. The choice of the method is subjective and depends on the nature of data and the missing values. The summary of the options available for handling missing values is given below:-
 
 1.	Drop missing values
+
 2.	Fill missing values with a test statistic
+
 3.	Fill missing values with Imputer
+
 4.	Build a Prediction Model
+
 5.	KNN Imputation
 
 
@@ -122,7 +121,8 @@ This is the easiest method to handle missing values. In this method, we drop lab
 
  ### drop columns from a data set containing missing values
 
-df.dropna(axis = 1)
+`df.dropna(axis = 1)`
+
 
 **A note about axis parameter** 
 
@@ -140,11 +140,11 @@ After dropping the missing values, we can again check for missing values and the
 
 ### again check the missing values in each column
 
-df.isnull.sum()  
+`df.isnull.sum()`  
 
 ### again check the dimensions of the dataset
 
-df.shape
+`df.shape`
 
 But, this method has one disadvantage. It involves the risk of losing useful information. Suppose there are lots of missing values in our dataset. If drop them, we may end up throwing away valuable information along with the missing data. It is a very grave mistake as it involves losing key information. So, it is only advised when there are only few missing values in our dataset.
 So, it's better to develop an imputation strategy so that we can impute missing values with the mean or the median of the row or column containing the missing values.
@@ -178,11 +178,15 @@ If we choose this method, then we should compute the median value on the trainin
 
 Scikit-Learn provides Imputer class to deal with the missing values. In this method, we replace the missing value with the mean value of the entire feature column. This can be done as shown in the following code:
 
-`from sklearn.preprocessing import Imputer`
-`imp = Imputer(missing_values='NaN',  strategy='mean', axis=0)`
-`imp = imp.fit(df.values)`
-`imputed_data = imp.transform(df.values)`
-`imputed_data`
+`from sklearn.preprocessing import Imputer
+
+imp = Imputer(missing_values='NaN',  strategy='mean', axis=0)
+
+imp = imp.fit(df.values)
+
+imputed_data = imp.transform(df.values)
+
+imputed_data`
 
 
 Here, I have replaced each ‘NaN’ value with the corresponding mean value. The mean value is separately calculated for each feature column. If instead of axis = 0, we set axis = 1, then mean values are calculated for each row. 
