@@ -97,15 +97,15 @@ Examples of isna() and notna() commands
 
 There are several methods to handle missing values. Each method has its own advantages and disadvantages. The choice of the method is subjective and depends on the nature of data and the missing values. The summary of the options available for handling missing values is given below:-
 
-1.	Drop missing values
+1.	**Drop missing values with dropna()**
 
-2.	Fill missing values with a test statistic
+2.	**Fill missing values with a test statistic**
 
-3.	Fill missing values with Imputer
+3.	**Fill missing values with Imputer**
 
-4.	Build a Prediction Model
+4.	**Build a Prediction Model**
 
-5.	KNN Imputation
+5.	**KNN Imputation**
 
 
 I have discussed each method in below sections:-
