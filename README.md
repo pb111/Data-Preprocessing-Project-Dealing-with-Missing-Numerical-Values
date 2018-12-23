@@ -2,6 +2,8 @@
 
 # Dealing with missing numerical values
 
+In this project, I explore various Data Preprocessing techniques to deal with missing numerical values. as listed below:-
+
 
 ## Introduction
 
@@ -12,9 +14,9 @@ In reality, the data has its own limitations. The data is dirty. It is incomplet
 So, ML practitioners must take steps to transform raw data into standardized data that is suitable for ML algorithms.  It involves cleaning, transforming and standardizing data to remove all the inadequacies and irregularities in the data. These steps are collectively known as Data Preprocessing.   
 
 
-## Project Outline
 
-In this project, I explore various Data Preprocessing techniques as listed below:-
+
+
 
 
 
