@@ -2,7 +2,7 @@
 
 # Dealing with missing numerical values
 
-In this project, I explore various Data Preprocessing techniques to deal with missing numerical values. as listed below:-
+In this project, I explore various Data Preprocessing techniques to deal with missing numerical values. 
 
 
 ## Introduction
