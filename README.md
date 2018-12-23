@@ -20,13 +20,6 @@ So, ML practitioners must take steps to transform raw data into standardized dat
 
 
 
-I will discuss these data preprocessing tasks in detail and write code snippets to deal with each task.  
-
-
-
-
-
-
 
 ## 1. Dealing with missing values
 
