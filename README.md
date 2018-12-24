@@ -103,9 +103,13 @@ Examples of **isna()** and **notna()** commands
 There are several methods to handle missing values. Each method has its own advantages and disadvantages. The choice of the method is subjective and depends on the nature of data and the missing values. The summary of the options available for handling missing values is given below:-
 
 •	Drop missing values with dropna()
+
 •	Fill missing values with a test statistic
+
 •	Fill missing values with Imputer
+
 •	Build a Prediction Model
+
 •	KNN Imputation
 
 
@@ -181,44 +185,48 @@ If we choose this method, then we should compute the median value on the trainin
 
 
 
-=======================================================================================
+================================================================================
 
 
 ## 5. Fill missing values with Imputer
 
 Scikit-Learn provides Imputer class to deal with the missing values. In this method, we replace the missing value with the mean value of the entire feature column. This can be done as shown in the following code:
 
-`from sklearn.preprocessing import Imputer
+`from sklearn.preprocessing import Imputer`
 
-imp = Imputer(missing_values='NaN',  strategy='mean', axis=0)
+`imp = Imputer(missing_values='NaN',  strategy='mean', axis=0)`
 
-imp = imp.fit(df.values)
+`imp = imp.fit(df.values)`
 
-imputed_data = imp.transform(df.values)
+`imputed_data = imp.transform(df.values)`
 
-imputed_data`
+`imputed_data`
 
 Here, I have replaced each ‘NaN’ value with the corresponding mean value. The mean value is separately calculated for each feature column. If instead of axis = 0, we set axis = 1, then mean values are calculated for each row. 
+
+
 Other options for strategy parameter are ‘median’ or ‘most_frequent’. The ‘most_frequent’ parameter replaces the missing values with the most frequent value. It is useful for imputing categorical feature values.
 
-===================================================================================================
+================================================================================
 
 ## 6. Build a prediction model
 
 We can build a prediction model to handle missing values. In this method, we divide our data set into two sets – training set and test set. Training set does not contain any missing values and test set contains missing values. The variable containing missing values can be treated as a target variable. Next, we create a model to predict target variable and use it to populate missing values of test data set. 
 
-===================================================================================================
+================================================================================
 
 ## 7. KNN Imputation
 
 
 In this method, the missing values of an attribute are imputed using the given number of attributes that are mostly similar to the attribute whose values are missing. The similarity of attributes is determined using a distance function.
 
-===================================================================================================
+================================================================================
 
 ## 8. Check with ASSERT statement
 
 Finally, we can check for missing values programmatically. If we drop or fill missing values, we expect no missing values. We can write an assert statement to verify this. So, we can use an assert statement to programmatically check that no missing or unexpected ‘0’ value is present. This gives confidence that our code is running properly.
+
+
 Assert statement will return nothing if the value being tested is true and will throw an AssertionError if the value is false.
 
 Asserts
@@ -253,7 +261,7 @@ Asserts
 This concludes our discussion on missing numerical values.
 
 
-====================================================================================================
+==================================================================================
 
 
 ## 9. References
