@@ -1,6 +1,6 @@
 # Data Preprocessing Project - Dealing with missing numerical values
 
-This project describes various techniques to deal with missing numerical values. I have discussed how to `drop missing values`, `fill missing values with test-statistic` and `imputer`. I discuss how to check for missing values with `ASSERT` statement.
+This project describes various techniques to deal with missing numerical values. I have discussed how to `drop missing values`, `fill missing values with test-statistic` and `imputer`, `build a prediction model` and `kNN imputation`. I discuss how to check for missing values with `ASSERT` statement.
 
 ===============================================================================
 
