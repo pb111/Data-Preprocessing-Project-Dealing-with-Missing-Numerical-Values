@@ -122,7 +122,7 @@ There are several methods to handle missing values. Each method has its own adva
 I have discussed each method in below sections:-
 
 
-================================================================================
+===============================================================================
 
 ## 3. Drop missing values with dropna()
 
@@ -167,7 +167,7 @@ But, this method has one disadvantage. It involves the risk of losing useful inf
 So, it's better to develop an imputation strategy so that we can impute missing values with the mean or the median of the row or column containing the missing values.
 
 
-================================================================================
+===============================================================================
 
 ## 4. Fill missing values with a test statistic
 
@@ -191,7 +191,7 @@ If we choose this method, then we should compute the median value on the trainin
 
 
 
-================================================================================
+===============================================================================
 
 
 ## 5. Fill missing values with Imputer
@@ -213,20 +213,20 @@ Here, I have replaced each ‘NaN’ value with the corresponding mean value. Th
 
 Other options for strategy parameter are ‘median’ or ‘most_frequent’. The ‘most_frequent’ parameter replaces the missing values with the most frequent value. It is useful for imputing categorical feature values.
 
-================================================================================
+===============================================================================
 
 ## 6. Build a prediction model
 
 We can build a prediction model to handle missing values. In this method, we divide our data set into two sets – training set and test set. Training set does not contain any missing values and test set contains missing values. The variable containing missing values can be treated as a target variable. Next, we create a model to predict target variable and use it to populate missing values of test data set. 
 
-================================================================================
+===============================================================================
 
 ## 7. KNN Imputation
 
 
 In this method, the missing values of an attribute are imputed using the given number of attributes that are mostly similar to the attribute whose values are missing. The similarity of attributes is determined using a distance function.
 
-================================================================================
+===============================================================================
 
 ## 8. Check with ASSERT statement
 
@@ -267,7 +267,7 @@ Asserts
 This concludes our discussion on missing numerical values.
 
 
-==================================================================================
+===============================================================================
 
 
 ## 9. References
