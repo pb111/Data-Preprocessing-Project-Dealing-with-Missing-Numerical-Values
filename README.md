@@ -1,6 +1,8 @@
 # Data Preprocessing Project - Dealing with missing numerical values
 
 
+===============================================================================
+
 
 ## Table of Contents
 
@@ -30,7 +32,7 @@ In reality, the data has its own limitations. The data is dirty. It is incomplet
 So, ML practitioners must take steps to transform raw data into standardized data that is suitable for ML algorithms.  It involves cleaning, transforming and standardizing data to remove all the inadequacies and irregularities in the data. These steps are collectively known as **Data Preprocessing**.   
 
 
-================================================================================
+==============================================================================
 
 
 ## 2. Dealing with missing numerical values
@@ -120,7 +122,7 @@ There are several methods to handle missing values. Each method has its own adva
 I have discussed each method in below sections:-
 
 
-=================================================================================
+================================================================================
 
 ## 3. Drop missing values with dropna()
 
